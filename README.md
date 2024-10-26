@@ -13,8 +13,8 @@
 
 Add this line to your Jekyll site's Gemfile:
 
-```ruby
-gem "minima"
+```
+jekyll serve
 ```
 
 And then execute:

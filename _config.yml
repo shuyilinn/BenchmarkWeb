@@ -28,10 +28,8 @@ plugins:
 # in order as they should show up.
 header_pages:
   - vnncomp.md
-  - paperlink.md
-  - repolink.md
-  - Docs.md
-  - People.md
+  - about.md
+
 
 # Set to `true` to show excerpts on the homepage.
 #show_excerpts: false
