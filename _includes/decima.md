@@ -127,39 +127,40 @@
     </thead>
     <tbody>
       <tr>
-        <td>decima_mid_1</td>
         <td>abcrown</td>
+        <td>decima_mid_1</td>
         <td>10</td>
         <td>0</td>
         <td>9.7232395</td>
         <td>0</td>
       </tr>
       <tr>
-        <td>decima_mid_1</td>
         <td>marabou</td>
+        <td>decima_mid_1</td>
         <td>10</td>
         <td>0</td>
         <td>10.77956162</td>
         <td>0</td>
       </tr>
       <tr>
-        <td>decima_mid_2</td>
         <td>abcrown</td>
+        <td>decima_mid_2</td>
         <td>8</td>
         <td>1</td>
         <td>26.29458285</td>
         <td>1</td>
       </tr>
       <tr>
-        <td>decima_mid_2</td>
         <td>marabou</td>
+        <td>decima_mid_2</td>
         <td>0</td>
         <td>0</td>
         <td>180.0</td>
         <td>10</td>
       </tr>
     </tbody>
-  </table>
+</table>
+
 </details>
 
   </details>

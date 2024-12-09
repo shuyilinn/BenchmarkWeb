@@ -1,111 +1,104 @@
-
-
 <!--  -->
   <details class="main-item">
     <summary>Learned Adaptive Bitrate</summary>
     <p>
-        The System Scheduler is designed for distributed computing systems like Spark. It manages a cluster of machines running multiple jobs, each with tasks that have dependencies. Using neural networks, a learned scheduler optimizes task scheduling to achieve high-level objectives, such as minimizing job completion time. It takes inputs like the status of jobs, tasks, and the cluster, and outputs the next tasks to run. For more information, check out the <a href="https://web.mit.edu/decima/">paper</a>.
+        In video streaming, adaptive bitrate algorithms are used on client-side video players to decide the
+        resolution (e.g., 720P) to download for the next video chunk. Learned adaptive bitrate uses neural
+        networks to select future video chunks based on observations collected by client video players.
+        For more information, check out the <a href="https://people.csail.mit.edu/hongzi/content/publications/Pensieve-Sigcomm17.pdf">paper</a>.
     </p>
     
     <details class="nested-item">
       <summary>Neural Network</summary>
-      
 
       <details class="nested-item">
         <summary>Original Paper</summary>
-        <p>The original neural network architecture consists of three main components:<br><br>
-
-          1. <b>GCN (Graph Convolutional Network)</b><br>
-             - Models dependencies between tasks and jobs<br>
-             - Captures graph structure of task interdependencies<br><br>
-          
-          2. <b>GSN (Graph Scheduling Network)</b><br>
-             - Builds on the GCN output<br>
-             - Focuses on scheduling optimization<br>
-             - Predicts optimal task schedules using graph-structured data<br><br>
-          
-          3. <b>FC (Fully Connected) Layers</b><br>
-             - Refines representations from GCN and GSN<br>
-             - Outputs final scheduling decisions<br>
-             - Determines next tasks to execute<br><br>
-
-          These components work together to enable efficient task scheduling in distributed systems through dynamic, data-driven decisions.</p>
+        <p>
+        The neural network (NN) in the Pensieve paper is a deep feedforward neural network used for adaptive bitrate control in video streaming. It takes multiple input features related to video playback, network conditions, and device performance. These inputs are processed through several hidden layers to predict the optimal video bitrate that maximizes quality while minimizing interruptions like buffering.
+        
+        <h4>Input:</h4>
+          The input is a tensor with N history time steps, each time step contains the following features:
+        <ul>
+          <li>Last chunk bitrate: bitrate/max bitrate, ex: 360P/1080P</li>
+          <li>Past chunk download time</li>
+          <li>Next chunk sizes</li>
+          <li>Current buffer size</li>
+          <li>Number of chunks left: eg: 43/48</li>
+          <li>Past chunk throughput: </li>
+        </ul>
+        All the input tensors are flattened into a 1D tensor.
+        <h4>Output:</h4>
+        <ul>
+          <li>optimal video bitrate</li>
+        </ul>
+        </p>
       </details>
 
       <details class="nested-item">
         <summary>Our Implementation</summary>
-        <p>In our benchmark, considering the limitation of current verifiers, we implement a compatible version of this neural network architecture. We implement 2 versions, benchmark version and a version for marabou the verifier. Implementation can be found in our <a href="https://github.com/Khoury-srg/NN4SysBench/blob/main/Models/Decima/model_benchmark.py">repository</a>.
+        <p>
+          In our benchmark, considering the limitation of current verifiers, we implement a compatible version of this neural network architecture. We implement 2 versions, benchmark version and a version for marabou the verifier. Implementation can be found in our <a href="https://github.com/Khoury-srg/NN4SysBench/blob/main/Models/Pensieve/model_no_softmax_no_argmax.py">repository</a>.
+        </p>
 
         <details class="nested-item">
           <summary>Benchmark Version</summary>
           <p>
-          We integrate the 3 components into a single neural network. The input is the status of jobs, tasks, and the cluster, and the output is the next tasks to execute. 
-          <h4>Input:</h4>
-          The input to the model is a tensor that is split into several segments:
+            The model is almost the same as the original paper, except that we remove the softmax and argmax layers, and all the input tensors are flattened into a 1D tensor. The input and output can be referred to in the Original Paper section.   <br>
+
+            To create different difficulty of the verification, we provide 3 different sizes of the model:
           
-          <ul>
-            <li><strong>node_inputs:</strong> Features of the nodes <br>
-                <em>Shape: [batch_size, Max_Node, 5]</em></li>
-            
-            <li><strong>node_valid_mask:</strong> A mask indicating the validity of nodes <br>
-                <em>Shape: [batch_size, 1, Max_Node]</em></li>
-            
-            <li><strong>gcn_mats:</strong> Graph convolution matrices for message passing <br>
-                <em>Shape: [batch_size, 8, Max_Node, Max_Node]</em></li>
-            
-            <li><strong>gcn_masks:</strong> Masks for each graph convolution operation <br>
-                <em>Shape: [batch_size, 8, Max_Node, 1]</em></li>
-            
-            <li><strong>summ_mats:</strong> Summarization matrices for aggregating graph information <br>
-                <em>Shape: [batch_size, Max_Node, Max_Node]</em></li>
-            
-            <li><strong>running_dags_mat:</strong> Running DAG state matrix <br>
-                <em>Shape: [batch_size, 1, Max_Node]</em></li>
-            
-            <li><strong>dag_summ_backward_map:</strong> A backward map for DAG summarization <br>
-                <em>Shape: [batch_size, Max_Node, Max_Node]</em></li>
-          </ul>
-          All the input tensors are flattened into a 1D tensor.
 
-          <h4>Output:</h4>
+          <div class="model-variant">
+            <h4>Small model:</h4>
+            <ul>
+              <li>First Layer: 4 parallel fully connected layers, each containing 128 neurons</li>
+              <li>Second Layer: A fully connected (linear) layer with 128 neurons</li>
+              <li>Output Layer: Fully connected (linear) layer with 6 neurons</li>
+            </ul>
+          </div>
 
-          <ul>
-            <li><strong>Node Outputs:</strong> Prediction scores for each node. Invalid nodes are masked with value 10000.0 <br>
-                <em>Shape: [1, node_num]</em></li>
+          <div class="model-variant">
+            <h4>Mid model (same as original paper):</h4>
+            <ul>
+              <li>First Layer: 3 parallel fully connected layers, each containing 128 neurons, and a 1D convolution layer with 128 filters and kernel size 4. These 4 layers take the input features in parallel.</li>
+              <li>Second Layer: A fully connected (linear) layer with 128 neurons</li>
+              <li>Output Layer: A fully connected (linear) layer with 6 neurons</li>
+            </ul>
+          </div>
 
-            <li><strong>Job Outputs (Ignored):</strong> Represents executor scores for each job (not used) <br>
-                <em>Shape: [1, job_num, total_executor_num]</em></li>
-          </ul>
-
-
-
-
-
-
-
+          <div class="model-variant">
+            <h4>Big model:</h4>
+            <ul>
+              <li>First Layer: 3 parallel fully connected layers, each containing 128 neurons, and a 1D convolution layer with 128 filters and kernel size 4. These 4 layers are parallel.</li>
+              <li>Second Layer: A fully connected (linear) layer with 256 neurons</li>
+              <li>Output Layer: Fully connected (linear) layer with 6 neurons</li>
+            </ul>
+          </div>
           </p>
         </details>
 
         <details class="nested-item">
           <summary>Marabou Version</summary>
           <p>
-            Most of the architecture is the same as the benchmark version, with a few key differences such as the use of a different graph convolution layer (GraphLayer_marabou) and learnable parameters for matrices like gcn_mats and gcn_masks.
+            Main difference:
+
+          <ul>
+            <li>Use torch.split() to split the input tensor into 2 parts.</li>
+          </ul>
           </p>
         </details>
+      </details>
 
         
-        
-        
-        
-        </p>
-      </details>
+
     </details>
 
     <details class="nested-item">
       <summary>Specification</summary>
       <p>
-      <strong>LearnedSched_spec1:</strong> If job A's input depends on job B's output and job B is not finished, then job A should not be scheduled. <br>
-      <strong>LearnedSched_spec2:</strong> A user cannot get their jobs scheduled earlier by requesting more resources for them.
+      <strong>AdaptiveBitrate_spec1/2:</strong> When facing good (bad) downloading conditions, the video streaming system should not
+        pick the worst (best) video resolution. <br>
+      <strong>AdaptiveBitrate_spec3:</strong> Better downloading conditions implies better resolutions
       
       
       
@@ -127,39 +120,95 @@
     </thead>
     <tbody>
       <tr>
-        <td>decima_mid_1</td>
         <td>abcrown</td>
+        <td>pensieve_big_1</td>
         <td>10</td>
         <td>0</td>
-        <td>9.7232395</td>
+        <td>5.99909349</td>
         <td>0</td>
       </tr>
       <tr>
-        <td>decima_mid_1</td>
-        <td>marabou</td>
-        <td>10</td>
-        <td>0</td>
-        <td>10.77956162</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>decima_mid_2</td>
         <td>abcrown</td>
-        <td>8</td>
-        <td>1</td>
-        <td>26.29458285</td>
-        <td>1</td>
+        <td>pensieve_big_2</td>
+        <td>10</td>
+        <td>0</td>
+        <td>6.06507417</td>
+        <td>0</td>
       </tr>
       <tr>
-        <td>decima_mid_2</td>
-        <td>marabou</td>
-        <td>0</td>
-        <td>0</td>
-        <td>180.0</td>
+        <td>abcrown</td>
+        <td>pensieve_big_3</td>
         <td>10</td>
+        <td>0</td>
+        <td>8.87928039</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>abcrown</td>
+        <td>pensieve_mid_1</td>
+        <td>10</td>
+        <td>0</td>
+        <td>6.26007705</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>abcrown</td>
+        <td>pensieve_mid_2</td>
+        <td>10</td>
+        <td>0</td>
+        <td>6.02888779</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>abcrown</td>
+        <td>pensieve_mid_3</td>
+        <td>10</td>
+        <td>0</td>
+        <td>8.6088345</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>abcrown</td>
+        <td>pensieve_small_1</td>
+        <td>10</td>
+        <td>0</td>
+        <td>5.0981046</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>marabou</td>
+        <td>pensieve_small_1</td>
+        <td>10</td>
+        <td>0</td>
+        <td>1.90850646</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>abcrown</td>
+        <td>pensieve_small_2</td>
+        <td>10</td>
+        <td>0</td>
+        <td>5.00802932</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>marabou</td>
+        <td>pensieve_small_2</td>
+        <td>10</td>
+        <td>0</td>
+        <td>1.91794796</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>abcrown</td>
+        <td>pensieve_small_3</td>
+        <td>10</td>
+        <td>0</td>
+        <td>6.80163713</td>
+        <td>0</td>
       </tr>
     </tbody>
-  </table>
+</table>
 </details>
 
   </details>

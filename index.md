@@ -11,7 +11,7 @@ layout: page
 We propose a benchmark suite for neural network verification for systems (NN4Sys). This suite includes verification benchmark for learned index, learned bloom filter, learned cardinality, learned Internet congestion control, learned adaptive bitrate, learned distributed system scheduler, which are six tasks that apply neural networks to solve traditional tasks for systems.
 
 
-Results of different verifiers    *(Hover to zoom in)*:
+Results of different verifiers    *(Hover to zoom in for a closer look)*:
 
 <style>
 .zoom-image {
@@ -39,117 +39,24 @@ Results of different verifiers    *(Hover to zoom in)*:
 
 
 
-<!--  -->
-  <details class="main-item">
-    <summary>Learned Index</summary>
-    <p>Content for menu item 1.</p>
-    
-    <details class="nested-item">
-      <summary>Introduction</summary>
-      <p>Content for menu item 1.1.</p>
-    </details>
-
-    <details class="nested-item">
-      <summary>Neural Network</summary>
-      <p>Content for menu item 1.2.</p>
-    </details>
-
-    <details class="nested-item">
-      <summary>Specification</summary>
-      <p>Content for menu item 1.2.</p>
-    </details>
-
-    <details class="nested-item">
-      <summary>Performance of the verifier</summary>
-      <p>Content for menu item 1.2.</p>
-    </details>
-  </details>
-
-
-<!--  -->
-  <details class="main-item">
-    <summary>Learned Bloom Filter</summary>
-    <p>Content for menu item 1.</p>
-    
-    <details class="nested-item">
-      <summary>Introduction</summary>
-      <p>Content for menu item 1.1.</p>
-    </details>
-
-    <details class="nested-item">
-      <summary>Neural Network</summary>
-      <p>Content for menu item 1.2.</p>
-    </details>
-
-    <details class="nested-item">
-      <summary>Specification</summary>
-      <p>Content for menu item 1.2.</p>
-    </details>
-
-    <details class="nested-item">
-      <summary>Performance of the verifier</summary>
-      <p>Content for menu item 1.2.</p>
-    </details>
-  </details>
 
 
 
 
 
-<!--  -->
-  <details class="main-item">
-    <summary>Learned Cardinality</summary>
-    <p>Content for menu item 1.</p>
-    
-    <details class="nested-item">
-      <summary>Introduction</summary>
-      <p>Content for menu item 1.1.</p>
-    </details>
-
-    <details class="nested-item">
-      <summary>Neural Network</summary>
-      <p>Content for menu item 1.2.</p>
-    </details>
-
-    <details class="nested-item">
-      <summary>Specification</summary>
-      <p>Content for menu item 1.2.</p>
-    </details>
-
-    <details class="nested-item">
-      <summary>Performance of the verifier</summary>
-      <p>Content for menu item 1.2.</p>
-    </details>
-  </details>
 
 
 
 
-<!--  -->
-  <details class="main-item">
-    <summary>Learned Internet Congestion Control</summary>
-    <p>Content for menu item 1.</p>
-    
-    <details class="nested-item">
-      <summary>Introduction</summary>
-      <p>Content for menu item 1.1.</p>
-    </details>
 
-    <details class="nested-item">
-      <summary>Neural Network</summary>
-      <p>Content for menu item 1.2.</p>
-    </details>
 
-    <details class="nested-item">
-      <summary>Specification</summary>
-      <p>Content for menu item 1.2.</p>
-    </details>
 
-    <details class="nested-item">
-      <summary>Performance of the verifier</summary>
-      <p>Content for menu item 1.2.</p>
-    </details>
-  </details>
+
+{% include LearnedIndex.md %}
+{% include LearnedBloomFilter.md %}
+{% include LearnedCardinality.md %}
+{% include LearnedInternetCongestionControl.md %}
+
 
 
 
@@ -159,7 +66,7 @@ Results of different verifiers    *(Hover to zoom in)*:
 </div>
 
 
-## Specifications
+<!-- ## Specifications -->
 
 
 <!-- ####from cheng:
