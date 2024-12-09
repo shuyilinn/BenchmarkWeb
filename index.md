@@ -154,74 +154,8 @@ Results of different verifiers    *(Hover to zoom in)*:
 
 
 
-
-<!--  -->
-  <details class="main-item">
-    <summary>Learned Adaptive Bitrate</summary>
-    <p>Content for menu item 1.</p>
-    
-    <details class="nested-item">
-      <summary>Introduction</summary>
-      <p>Content for menu item 1.1.</p>
-    </details>
-
-    <details class="nested-item">
-      <summary>Neural Network</summary>
-      <p>Content for menu item 1.2.</p>
-    </details>
-
-    <details class="nested-item">
-      <summary>Specification</summary>
-      <p>Content for menu item 1.2.</p>
-    </details>
-
-    <details class="nested-item">
-      <summary>Performance of the verifier</summary>
-      <p>Content for menu item 1.2.</p>
-    </details>
-  </details>
-
-
-
-
-
-
-
-
-
-
-
-
-<!--  -->
-  <details class="main-item">
-    <summary>Learned Distributed System Scheduler</summary>
-    <p>Content for menu item 1.</p>
-    
-    <details class="nested-item">
-      <summary>Introduction</summary>
-      <p>Content for menu item 1.1.</p>
-    </details>
-
-    <details class="nested-item">
-      <summary>Neural Network</summary>
-      <p>Content for menu item 1.2.</p>
-    </details>
-
-    <details class="nested-item">
-      <summary>Specification</summary>
-      <p>Content for menu item 1.2.</p>
-    </details>
-
-    <details class="nested-item">
-      <summary>Performance of the verifier</summary>
-      <p>Content for menu item 1.2.</p>
-    </details>
-  </details>
-
-
-
-
-
+{% include pensieve.md %}
+{% include decima.md %}
 </div>
 
 
