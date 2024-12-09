@@ -31,6 +31,13 @@ header_pages:
   - about.md
 
 
+header_buttons:
+  - name: "Code"
+    url: "https://github.com/Khoury-srg/NN4SysBench"
+  - name: "Paper"
+    url: "https://naizhengtan.github.io/doc/papers/lin24nn4sysbench.pdf"
+
+
 # Set to `true` to show excerpts on the homepage.
 #show_excerpts: false
 

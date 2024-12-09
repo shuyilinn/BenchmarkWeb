@@ -5,3 +5,43 @@
 @import
   "minima/skins/{{ site.minima.skin | default: 'classic' }}",
   "minima/initialize";
+
+
+
+/* 折叠菜单样式 */
+.accordion details {
+  margin-bottom: 10px;
+}
+
+.accordion summary {
+  cursor: pointer;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.accordion details[open] summary {
+  background-color: #e1e1e1;
+}
+
+.accordion p {
+  margin: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-top: none;
+}
+
+/* 只对嵌套的折叠菜单项应用缩进 */
+.accordion .nested-item {
+  margin-left: 20px;  /* 为嵌套菜单项添加左侧缩进 */
+}
+
+/* 使嵌套的折叠菜单的标题字体样式与主菜单不同 */
+.accordion .nested-item summary {
+  font-style: italic;
+}
+
+
+  

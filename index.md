@@ -7,90 +7,228 @@
 #
 layout: page
 ---
-## Summary​
-We propose a benchmark suite for neural network verification for systems (NN4Sys). This suite includes verification benchmark for learned index, learned cardinality, learned Internet congestion control, learned adaptive bitrate, learned distributed system scheduler, which are five tasks that apply neural networks to solve traditional tasks for systems.
+
+We propose a benchmark suite for neural network verification for systems (NN4Sys). This suite includes verification benchmark for learned index, learned bloom filter, learned cardinality, learned Internet congestion control, learned adaptive bitrate, learned distributed system scheduler, which are six tasks that apply neural networks to solve traditional tasks for systems.
 
 
+Results of different verifiers    *(Hover to zoom in)*:
 
-
-<!-- 
 <style>
-    .collapsible {
-        background-color: #f1f1f1;
-        color: #444;
-        cursor: pointer;
-        padding: 10px;
-        width: 100%;
-        border: none;
-        text-align: left;
-        outline: none;
-        font-size: 16px;
-    }
-
-    .active, .collapsible:hover {
-        background-color: #ccc;
-    }
-
-    .content {
-        padding: 0 18px;
-        display: none;
-        overflow: hidden;
-        background-color: #f9f9f9;
-    }
+.zoom-image {
+    transition: transform 0.3s ease;
+}
+.zoom-image:hover {
+    transform: scale(1.45);
+}
 </style>
 
-<h2>Collapsible Section Example</h2>
+![Verification Results]({{ '/assets/graphs/verification_runtime_2.jpg' | relative_url }}){: .zoom-image}
 
-<button class="collapsible">Section 1</button>
-<div class="content">
-    <p>This is the content of section 1. You can add any text, images, or other HTML elements here.</p>
-    <p>This is the content of section 1. You can add any text, images, or other HTML elements here.</p>
-    <p>This is the content of section 1. You can add any text, images, or other HTML elements here.</p>
-    <p>This is the content of section 1. You can add any text, images, or other HTML elements here.</p>
+
+
+
+
+
+
+## Applications
+
+<!--  -->
+<div class="accordion">
+
+
+
+
+
+<!--  -->
+  <details class="main-item">
+    <summary>Learned Index</summary>
+    <p>Content for menu item 1.</p>
+    
+    <details class="nested-item">
+      <summary>Introduction</summary>
+      <p>Content for menu item 1.1.</p>
+    </details>
+
+    <details class="nested-item">
+      <summary>Neural Network</summary>
+      <p>Content for menu item 1.2.</p>
+    </details>
+
+    <details class="nested-item">
+      <summary>Specification</summary>
+      <p>Content for menu item 1.2.</p>
+    </details>
+
+    <details class="nested-item">
+      <summary>Performance of the verifier</summary>
+      <p>Content for menu item 1.2.</p>
+    </details>
+  </details>
+
+
+<!--  -->
+  <details class="main-item">
+    <summary>Learned Bloom Filter</summary>
+    <p>Content for menu item 1.</p>
+    
+    <details class="nested-item">
+      <summary>Introduction</summary>
+      <p>Content for menu item 1.1.</p>
+    </details>
+
+    <details class="nested-item">
+      <summary>Neural Network</summary>
+      <p>Content for menu item 1.2.</p>
+    </details>
+
+    <details class="nested-item">
+      <summary>Specification</summary>
+      <p>Content for menu item 1.2.</p>
+    </details>
+
+    <details class="nested-item">
+      <summary>Performance of the verifier</summary>
+      <p>Content for menu item 1.2.</p>
+    </details>
+  </details>
+
+
+
+
+
+<!--  -->
+  <details class="main-item">
+    <summary>Learned Cardinality</summary>
+    <p>Content for menu item 1.</p>
+    
+    <details class="nested-item">
+      <summary>Introduction</summary>
+      <p>Content for menu item 1.1.</p>
+    </details>
+
+    <details class="nested-item">
+      <summary>Neural Network</summary>
+      <p>Content for menu item 1.2.</p>
+    </details>
+
+    <details class="nested-item">
+      <summary>Specification</summary>
+      <p>Content for menu item 1.2.</p>
+    </details>
+
+    <details class="nested-item">
+      <summary>Performance of the verifier</summary>
+      <p>Content for menu item 1.2.</p>
+    </details>
+  </details>
+
+
+
+
+<!--  -->
+  <details class="main-item">
+    <summary>Learned Internet Congestion Control</summary>
+    <p>Content for menu item 1.</p>
+    
+    <details class="nested-item">
+      <summary>Introduction</summary>
+      <p>Content for menu item 1.1.</p>
+    </details>
+
+    <details class="nested-item">
+      <summary>Neural Network</summary>
+      <p>Content for menu item 1.2.</p>
+    </details>
+
+    <details class="nested-item">
+      <summary>Specification</summary>
+      <p>Content for menu item 1.2.</p>
+    </details>
+
+    <details class="nested-item">
+      <summary>Performance of the verifier</summary>
+      <p>Content for menu item 1.2.</p>
+    </details>
+  </details>
+
+
+
+
+
+<!--  -->
+  <details class="main-item">
+    <summary>Learned Adaptive Bitrate</summary>
+    <p>Content for menu item 1.</p>
+    
+    <details class="nested-item">
+      <summary>Introduction</summary>
+      <p>Content for menu item 1.1.</p>
+    </details>
+
+    <details class="nested-item">
+      <summary>Neural Network</summary>
+      <p>Content for menu item 1.2.</p>
+    </details>
+
+    <details class="nested-item">
+      <summary>Specification</summary>
+      <p>Content for menu item 1.2.</p>
+    </details>
+
+    <details class="nested-item">
+      <summary>Performance of the verifier</summary>
+      <p>Content for menu item 1.2.</p>
+    </details>
+  </details>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  -->
+  <details class="main-item">
+    <summary>Learned Distributed System Scheduler</summary>
+    <p>Content for menu item 1.</p>
+    
+    <details class="nested-item">
+      <summary>Introduction</summary>
+      <p>Content for menu item 1.1.</p>
+    </details>
+
+    <details class="nested-item">
+      <summary>Neural Network</summary>
+      <p>Content for menu item 1.2.</p>
+    </details>
+
+    <details class="nested-item">
+      <summary>Specification</summary>
+      <p>Content for menu item 1.2.</p>
+    </details>
+
+    <details class="nested-item">
+      <summary>Performance of the verifier</summary>
+      <p>Content for menu item 1.2.</p>
+    </details>
+  </details>
+
+
+
+
+
 </div>
 
-<button class="collapsible">Section 2</button>
-<div class="content">
-    <p>This is the content of section 2. Similar to the first one, it expands when you click on it.</p>
-</div>
 
-<script>
-    var coll = document.getElementsByClassName("collapsible");
-    console.log("Collapsible buttons found:", coll.length); // Check if buttons are detected
-
-    for (var i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-
-            console.log("Content element:", content); // Check if content is detected
-
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        });
-    }
-</script> -->
+## Specifications
 
 
-
-
-
-## Application​s
-### Learned Index
-#### Intro
-#### result
-#### download link
-#### reproduce instruction
-### Learned Cardinality
-### Learned Internet Congestion Control
-### Learned Adaptive Bitrate
-### Learned Distributed System Scheduler
-
-
-####from cheng:
+<!-- ####from cheng:
 Introduction for each app
 description
 paper
@@ -99,8 +237,7 @@ brief description of NN
 input, output, sepcification
 performance of verifier(number)
 
-After Summary: 1 figure of result of difference verifier
-
+After Summary: 1 figure of result of difference verifier -->
 
 
 
