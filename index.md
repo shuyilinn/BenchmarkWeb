@@ -52,10 +52,10 @@ Results of different verifiers    *(Hover to zoom in for a closer look)*:
 
 
 
-{% include LearnedIndex.md %}
+<!-- {% include LearnedIndex.md %}
 {% include LearnedBloomFilter.md %}
 {% include LearnedCardinality.md %}
-{% include LearnedInternetCongestionControl.md %}
+{% include LearnedInternetCongestionControl.md %} -->
 
 
 
