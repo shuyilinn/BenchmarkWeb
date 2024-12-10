@@ -2,7 +2,7 @@
   <details class="main-item">
     <summary>Learned Internet Congestion Control</summary>
     <p>
-        congestion control protocols are to ensure efficient data transmission and prevent packet congestion in a network. Learned congestion control studies the patterns of congestion and non-congestion conditions, takes network conditions as input, and decides sending rates in the near future.
+        Congestion control protocols are to ensure efficient data transmission and prevent packet congestion in a network. Learned congestion control studies the patterns of congestion and non-congestion conditions, takes network conditions as input, and decides sending rates in the near future.
         For more information, check out the <a href="https://proceedings.mlr.press/v97/jay19a/jay19a.pdf">paper</a>.
     </p>
     
@@ -41,31 +41,22 @@
           - Small model:
           2 hidden layers of 16 → 8 neurons, tanh nonlinearity.
           <br>
-
-          
           - Mid model (same as original paper):
           2 hidden layers of 32 → 16 neurons, tanh nonlinearity. <br>
-          
           - Big model:
           2 hidden layers of 32 → 16 neurons, tanh nonlinearity.
           <br>
-
           </p>
-
-
-
       </details>
-
-        
-
     </details>
 
     <details class="nested-item">
       <summary>Specification</summary>
       <p>
-      <strong>AdaptiveBitrate_spec1/2:</strong> When facing good (bad) downloading conditions, the video streaming system should not
-        pick the worst (best) video resolution. <br>
-      <strong>AdaptiveBitrate_spec3:</strong> Better downloading conditions implies better resolutions
+
+      <strong>CongestCtrl_spec101/102:</strong> When observing good (bad) networking conditions, the sender does not decrease (increase) packet sending rates. <br>
+      <strong>CongestCtrl_spec2:</strong> When observing better networking conditions, the sender increases packet sending rates by either the same or a larger amount. <br>
+      <strong>CongestCtrl_spec3:</strong> When the networking condition changes from bad to good, the sender eventually increases packet sending rates. 
       
       
       
@@ -76,106 +67,163 @@
   <summary>Performance of the Verifier</summary>
   <table border="1">
     <thead>
-      <tr>
-        <th>Verifier</th>
-        <th>Type</th>
-        <th>Safe</th>
-        <th>Unsafe</th>
-        <th>Time</th>
-        <th>Timeout</th>
-      </tr>
+        <tr>
+            <th>Verifier</th>
+            <th>Type</th>
+            <th>Safe</th>
+            <th>Unsafe</th>
+            <th>Time</th>
+            <th>Timeout</th>
+        </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>abcrown</td>
-        <td>pensieve_big_1</td>
-        <td>10</td>
-        <td>0</td>
-        <td>5.99909349</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>abcrown</td>
-        <td>pensieve_big_2</td>
-        <td>10</td>
-        <td>0</td>
-        <td>6.06507417</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>abcrown</td>
-        <td>pensieve_big_3</td>
-        <td>10</td>
-        <td>0</td>
-        <td>8.87928039</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>abcrown</td>
-        <td>pensieve_mid_1</td>
-        <td>10</td>
-        <td>0</td>
-        <td>6.26007705</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>abcrown</td>
-        <td>pensieve_mid_2</td>
-        <td>10</td>
-        <td>0</td>
-        <td>6.02888779</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>abcrown</td>
-        <td>pensieve_mid_3</td>
-        <td>10</td>
-        <td>0</td>
-        <td>8.6088345</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>abcrown</td>
-        <td>pensieve_small_1</td>
-        <td>10</td>
-        <td>0</td>
-        <td>5.0981046</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>marabou</td>
-        <td>pensieve_small_1</td>
-        <td>10</td>
-        <td>0</td>
-        <td>1.90850646</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>abcrown</td>
-        <td>pensieve_small_2</td>
-        <td>10</td>
-        <td>0</td>
-        <td>5.00802932</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>marabou</td>
-        <td>pensieve_small_2</td>
-        <td>10</td>
-        <td>0</td>
-        <td>1.91794796</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>abcrown</td>
-        <td>pensieve_small_3</td>
-        <td>10</td>
-        <td>0</td>
-        <td>6.80163713</td>
-        <td>0</td>
-      </tr>
+        <tr>
+            <td>abcrown</td>
+            <td>aurora_big_101</td>
+            <td>0</td>
+            <td>10</td>
+            <td>2.19588738</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>marabou</td>
+            <td>aurora_big_101</td>
+            <td>0</td>
+            <td>10</td>
+            <td>0.102064294</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>abcrown</td>
+            <td>aurora_big_102</td>
+            <td>6</td>
+            <td>4</td>
+            <td>2.838494590</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>marabou</td>
+            <td>aurora_big_102</td>
+            <td>6</td>
+            <td>4</td>
+            <td>0.09996135</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>abcrown</td>
+            <td>aurora_big_2</td>
+            <td>0</td>
+            <td>10</td>
+            <td>2.32072963</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>marabou</td>
+            <td>aurora_big_2</td>
+            <td>0</td>
+            <td>10</td>
+            <td>0.102983946</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>abcrown</td>
+            <td>aurora_big_3</td>
+            <td>0</td>
+            <td>10</td>
+            <td>2.22639322</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>marabou</td>
+            <td>aurora_big_3</td>
+            <td>0</td>
+            <td>10</td>
+            <td>0.23421416</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>abcrown</td>
+            <td>aurora_big_4</td>
+            <td>0</td>
+            <td>10</td>
+            <td>2.25798789</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>abcrown</td>
+            <td>aurora_mid_101</td>
+            <td>10</td>
+            <td>0</td>
+            <td>2.96464823</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>marabou</td>
+            <td>aurora_mid_101</td>
+            <td>10</td>
+            <td>0</td>
+            <td>0.042553444</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>abcrown</td>
+            <td>aurora_mid_102</td>
+            <td>0</td>
+            <td>10</td>
+            <td>2.37557136</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>marabou</td>
+            <td>aurora_mid_102</td>
+            <td>0</td>
+            <td>10</td>
+            <td>0.053586597</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>abcrown</td>
+            <td>aurora_mid_2</td>
+            <td>0</td>
+            <td>10</td>
+            <td>2.24732022</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>marabou</td>
+            <td>aurora_mid_2</td>
+            <td>0</td>
+            <td>10</td>
+            <td>0.049091978</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>abcrown</td>
+            <td>aurora_mid_3</td>
+            <td>0</td>
+            <td>10</td>
+            <td>2.24376578</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>marabou</td>
+            <td>aurora_mid_3</td>
+            <td>0</td>
+            <td>10</td>
+            <td>0.113317223</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>abcrown</td>
+            <td>aurora_mid_4</td>
+            <td>10</td>
+            <td>0</td>
+            <td>3.97856824</td>
+            <td>0</td>
+        </tr>
     </tbody>
 </table>
+
 </details>
 
   </details>
