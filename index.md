@@ -34,8 +34,10 @@ Results of different verifiers    *(Hover to zoom in for a closer look)*:
 
 <div class="accordion">
 
-
-
+{% include LearnedIndex.md %}
+{% include LearnedBloomFilter.md %}
+{% include LearnedCardinality.md %}
+{% include LearnedInternetCongestionControl.md %}
 
 {% include pensieve.md %}
 {% include decima.md %}
