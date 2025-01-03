@@ -8,7 +8,7 @@
 layout: page
 ---
 
-We propose a benchmark suite for neural network verification for systems (NN4Sys). This suite includes verification benchmark for learned index, learned bloom filter, learned cardinality, learned Internet congestion control, learned adaptive bitrate, learned distributed system scheduler, which are six tasks that apply neural networks to solve traditional tasks for systems.
+"NN4SysBench is a benchmark suite for neural network verification, incorporating applications from the domain of neural network for computer systems (NN4Sys). This suite includes verification benchmark for learned index, learned bloom filter, learned cardinality, learned Internet congestion control, learned adaptive bitrate, learned distributed system scheduler, which are six tasks that apply neural networks to solve traditional tasks for systems.
 
 
 Results of different verifiers    *(Hover to zoom in for a closer look)*:

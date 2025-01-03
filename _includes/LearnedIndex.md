@@ -8,11 +8,33 @@
     
     <details class="nested-item">
       <summary>Neural Network</summary>
-      <p>
-      To be added.
+            <details class="nested-item">
+        <summary>Original Paper</summary>
+        <p>
+        The original paper introduces Recursive Model Index (RMI), a framework that leverages a set of machine learning models to construct a hierarchical graph. The final implementation opts for linear models instead of neural networks to enhance execution performance. The initial naive design employs a two-layer fully connected neural network with 32 neurons. However, training a neural network to accurately model the database proves to be challenging.
+        </p>
+      </details>
+
+    <details class="nested-item">
+        <summary>Our Implementation</summary>
+        <p>
+          We use neural networks to learn database index. We have two sizes of neural networks:<br>
+          1. LINN (Lightweight Neural Network):<br>
+            - Width: 128 neurons per hidden layer.<br>
+            - Depth: 4 layers (3 fully connected layers followed by ReLU activations and 1 output layer).<br>
+        2. DeepLINN (Deep Lightweight Neural Network):<br>
+            - Width: 128 neurons per hidden layer.<br>
+            - Depth: 6 layers (5 fully connected layers with ReLU activations).<br><br>
+          
+           We face the same challenge as the original paper. We train the models via a 
+          <a href="https://naizhengtan.github.io/doc/papers/building23wei.pdf">training-verification loop</a>.
 
 
-      </p>
+          
+          </p>
+      </details>
+
+      
        </details>
 
     <details class="nested-item">

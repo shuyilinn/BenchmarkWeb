@@ -1,4 +1,4 @@
-title: NN4Sys Benchmark
+title: NN4SysBench
 author:
   name: Northeastern University SRG
   email: lin.shuyi@northeastern.com
@@ -6,7 +6,7 @@ author:
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
 description: >
-  This is the website for NN4Sys benchmark.
+  This is the website for NN4SysBench.
 
 # Build settings
 
