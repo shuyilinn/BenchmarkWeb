@@ -25,9 +25,6 @@ Results of different verifiers    *(Hover to zoom in for a closer look)*:
 ![Verification Results]({{ '/assets/graphs/verification_runtime_2.jpg' | relative_url }}){: .zoom-image}
 
 
-
-
-
 ## Applications
 
 <div class="accordion">
@@ -36,10 +33,9 @@ Results of different verifiers    *(Hover to zoom in for a closer look)*:
 {% include LearnedBloomFilter.md %}
 {% include LearnedCardinality.md %}
 {% include LearnedInternetCongestionControl.md %}
-
 {% include pensieve.md %}
 {% include decima.md %}
-{% include decima.md %}
+
 </div>
 
 
