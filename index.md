@@ -28,8 +28,6 @@ Results of different verifiers    *(Hover to zoom in for a closer look)*:
 
 
 
-
-
 ## Applications
 
 <div class="accordion">
