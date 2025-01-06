@@ -39,6 +39,7 @@ Results of different verifiers    *(Hover to zoom in for a closer look)*:
 
 {% include pensieve.md %}
 {% include decima.md %}
+{% include decima.md %}
 </div>
 
 
