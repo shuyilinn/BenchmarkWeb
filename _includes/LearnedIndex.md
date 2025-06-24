@@ -28,21 +28,14 @@
           
            We face the same challenge as the original paper. We train the models via a 
           <a href="https://naizhengtan.github.io/doc/papers/building23wei.pdf">training-verification loop</a>.
-
-
           </p>
       </details>
 
-      
-       </details>
 
     <details class="nested-item">
       <summary>Specification</summary>
       <p>
       All predicted data locations are error-bounded.
-      
-      
-      
       </p>
     </details>
 
