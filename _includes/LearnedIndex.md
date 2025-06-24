@@ -30,7 +30,7 @@
           <a href="https://naizhengtan.github.io/doc/papers/building23wei.pdf">training-verification loop</a>.
           </p>
       </details>
-
+    </details>
 
     <details class="nested-item">
       <summary>Specification</summary>

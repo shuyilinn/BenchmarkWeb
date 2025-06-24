@@ -8,21 +8,40 @@
     
     <details class="nested-item">
       <summary>Neural Network</summary>
-      <p>
-      To be added.
+
+
+      <details class="nested-item">
+        <summary>Original Paper</summary>
+        <p>
+The original paper introduces Learned Bloom Filter, a compact replacement for traditional Bloom filters that leverages a binary classifier to distinguish between keys and non-keys. The initial implementation uses a recurrent neural network (GRU) with 16 hidden units and a 32-dimensional character embedding to process string inputs. While the model achieves high classification accuracy, it cannot guarantee zero false negatives. To address this limitation, the final design incorporates an auxiliary Bloom filter to catch any missed keys, thereby ensuring correctness while reducing overall memory consumption.
+        </p>
+      </details>
+
+      <details class="nested-item">
+        <summary>Our Implementation</summary>
+        <p>
+        We use neural networks to learn Bloom filters. Our architecture is as follows:
+
+  - Width: 256 neurons per hidden layer  
+  - Depth: 4 layers (3 fully connected layers followed by ReLU activations, and 1 final output layer)  
+  - Output: A sigmoid activation is applied to produce a probability indicating key membership  
+
+This model takes a 2-dimensional input and predicts whether a given key belongs to the target set.
 
 
 
-      </p>
+
+        </p>
+
+      </details>
+
     </details>
 
     <details class="nested-item">
       <summary>Specification</summary>
       <p>
       The false positive and false negative rates are bounded.
-      
-      
-      
+
       </p>
     </details>
 
