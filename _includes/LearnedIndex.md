@@ -30,7 +30,6 @@
           <a href="https://naizhengtan.github.io/doc/papers/building23wei.pdf">training-verification loop</a>.
 
 
-          
           </p>
       </details>
 
