@@ -22,18 +22,29 @@ The paper proposes MSCN (Multi-Set Convolutional Network) for cardinality estima
     <details class="nested-item">
         <summary>Our Implementation</summary>
         <p>
+We use neural networks to learn database query patterns. We implemented four variations of our SetConv architecture:<br>
 
-We use neural networks to learn database query patterns. We implemented two configurations of our SetConv architecture:<br>
+1. MSCN-128d:<br>
+   - Width: 128 neurons per hidden layer<br>
+   - Depth: 2 hidden layers in each feature path + 2 layers for combined features<br>
+   - Training: 10,000 queries, 10 epochs, batch size of 1024, learning rate of 0.01<br>
 
-1. MSCN-128:<br>
-   - Width: 128 neurons per hidden layer.<br>
-   - Processing: Three parallel paths for samples, predicates, and joins.<br>
-   - Training: 10,000 queries, 10 epochs, batch size of 1024, learning rate of 0.01.<br>
+2. MSCN-128d-dual:<br>
+   - Width: 128 neurons per hidden layer<br>
+   - Depth: 2 hidden layers in each feature path + 2 layers for combined features<br>
+   - Processing: Dual parallel paths with subtraction operation for final output<br>
+   - Training: 10,000 queries, 10 epochs, batch size of 1024, learning rate of 0.01<br>
 
-2. MSCN-2048:<br>
-   - Width: 2048 neurons per hidden layer.<br>
-   - Processing: Same three-path architecture as SetConv-128.<br>
-   - Training: 10,000 queries, 10 epochs, batch size of 1024, learning rate of 0.01.<br>
+3. MSCN-2048d:<br>
+   - Width: 2048 neurons per hidden layer<br>
+   - Depth: 2 hidden layers in each feature path + 2 layers for combined features<br>
+   - Training: 10,000 queries, 10 epochs, batch size of 1024, learning rate of 0.01<br>
+
+4. MSCN-2048d-dual:<br>
+   - Width: 2048 neurons per hidden layer<br>
+   - Depth: 2 hidden layers in each feature path + 2 layers for combined features<br>
+   - Processing: Dual parallel paths with subtraction operation for final output<br>
+   - Training: 10,000 queries, 10 epochs, batch size of 1024, learning rate of 0.01<br>
 
 Our model processes input features of varying dimensions: sample features (based on table vectors), predicate features (combining column vectors, operation vectors, and values), and join features. Each feature type is processed through its own two-layer MLP with ReLU activations before being combined. We face the same challenges as the original paper and train our models via a training-verification loop to ensure model accuracy and generalization.<br>
         </p>
