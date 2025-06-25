@@ -20,17 +20,11 @@ The original paper introduces Learned Bloom Filter, a compact replacement for tr
       <details class="nested-item">
         <summary>Our Implementation</summary>
         <p>
-        We use neural networks to learn Bloom filters. Our architecture is as follows:
-
-  - Width: 256 neurons per hidden layer  
-  - Depth: 4 layers (3 fully connected layers followed by ReLU activations, and 1 final output layer)  
-  - Output: A sigmoid activation is applied to produce a probability indicating key membership  
-
-This model takes a 2-dimensional input and predicts whether a given key belongs to the target set.
-
-
-
-
+        We use neural networks to learn Bloom filters. Our architecture is as follows:<br>
+          - Width: 256 neurons per hidden layer.<br>
+          - Depth: 4 layers (3 fully connected layers followed by ReLU activations, and 1 final output layer).<br>
+          - Output: A sigmoid activation is applied to produce a probability indicating key membership.<br>  
+      This model takes a 2-dimensional input and predicts whether a given key belongs to the target set.
         </p>
 
       </details>
